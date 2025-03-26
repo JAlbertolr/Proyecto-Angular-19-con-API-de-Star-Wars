@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="character-details">
+    <h2>Lista de Naves</h2>
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar nave..." />
+    <ul>
+      <li *ngFor="let starship of filteredStarships" (click)="selectStarship(starship)">
+        {{ starship.name }}
+      </li>
+    </ul>
+    
+  </div>
+  
+  <app-starship-detail [starship]="selectedStarship" class="starship-details"></app-starship-detail>
+</div>
+<p *ngIf="filteredStarships.length === 0">Cargando lista de naves</p>
+
+
+

@@ -1,0 +1,17 @@
+<div class="container">
+<div class="character-list">
+<h2>Lista de Personajes</h2>
+<input type="text" [(ngModel)]="searchTerm" placeholder="Buscar personaje..." />
+<ul>
+  <li *ngFor="let character of filteredCharacters" (click)="selectCharacter(character)">
+    {{ character.name }}
+  </li>
+</ul>
+</div>
+
+
+
+<app-character-detail [character]="selectedCharacter" class="character-details"></app-character-detail>
+
+</div>
+<p *ngIf="filteredCharacters.length === 0">Cargando lista de personajes.</p>

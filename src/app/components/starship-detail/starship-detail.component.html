@@ -1,0 +1,24 @@
+
+<div *ngIf="starship" class="starship-details">
+  <h3>Detalles de {{ starship.name }}</h3>
+  <p><strong>Modelo:</strong> {{ starship.model }}</p>
+  <p><strong>Fabricante:</strong> {{ starship.manufacturer }}</p>
+  <p><strong>Costo en créditos:</strong> {{ starship.cost_in_credits }}</p>
+  <p><strong>Longitud:</strong> {{ starship.length }} metros</p>
+  <p><strong>Velocidad máxima en atmósfera:</strong> {{ starship.max_atmosphering_speed }}</p>
+  <p><strong>Tripulación:</strong> {{ starship.crew }}</p>
+  <p><strong>Pasajeros:</strong> {{ starship.passengers }}</p>
+  <p><strong>Capacidad de carga:</strong> {{ starship.cargo_capacity }}</p>
+  <p><strong>Consumibles:</strong> {{ starship.consumables }}</p>
+  <p><strong>Calificación del hiperimpulsor:</strong> {{ starship.hyperdrive_rating }}</p>
+  <p><strong>MGLT:</strong> {{ starship.MGLT }}</p>
+  <p><strong>Clase de nave:</strong> {{ starship.starship_class }}</p>
+  
+  <p><strong>Películas en las que aparece:</strong></p>
+ 
+  <ul>
+    <li *ngFor="let film of starship.films">{{ film }}</li>
+  </ul>
+</div>
+<h1 *ngIf="!starship">Selecciona una nave para ver los detalles</h1>
+

@@ -1,0 +1,41 @@
+.container {
+  display: flex; /* Organiza los elementos en fila */
+  justify-content: space-between; /* Separa los elementos */
+  align-items: flex-start; /* Alinea los elementos arriba */
+  gap: 20px; /* Espacio entre los elementos */
+  padding: 20px;
+}
+
+.character-list {
+  flex: 1; /* Ocupa el espacio disponible */
+  max-width: 40%; /* No supera el 40% del ancho */
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+li:hover {
+  background-color: #e0e0e0;
+}
+.character-details {
+  flex: 2; /* Ocupa más espacio */
+  max-width: 40%;
+  
+}
+p{
+  padding: 30px;
+  font-size: 20px;
+}

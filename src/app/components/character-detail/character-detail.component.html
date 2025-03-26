@@ -1,0 +1,13 @@
+
+<div *ngIf="character" class="character-details">
+  <h3>Detalles de {{ character.name }}</h3>
+  <p><strong>Altura:</strong> {{ character.height }} cm</p>
+  <p><strong>Peso:</strong> {{ character.mass }} kg</p>
+  <p><strong>Color de cabello:</strong> {{ character.hair_color }}</p>
+  <p><strong>Color de ojos:</strong> {{ character.eye_color }}</p>
+  <p><strong>Año de nacimiento:</strong> {{ character.birth_year }}</p>
+  <p><strong>Género:</strong> {{ character.gender }}</p>
+</div>
+<h1 *ngIf="!character">Selecciona un personaje para ver los detalles</h1>
+
+
