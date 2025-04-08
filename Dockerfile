@@ -23,7 +23,7 @@ RUN ng build --configuration production
 FROM nginx:alpine
 
 # Copia la build desde la etapa anterior
-COPY --from=build /app/dist/tu-nombre-app-angular /usr/share/nginx/html
+COPY --from=build /app/dist/starwars /usr/share/nginx/html
 
 # Expone el puerto 80 (Render detecta este automáticamente)
 EXPOSE 80
