@@ -1,7 +1,6 @@
 # Etapa 1: build de Angular
 FROM node:18 AS build
 
-# Establece el directorio de trabajo
 WORKDIR /app
 
 # Copia los archivos de configuración de npm
@@ -17,7 +16,7 @@ RUN npm install
 COPY . .
 
 # Compila la app Angular en modo producción
-RUN ng build --configuration production
+RUN npm run build --configuration production
 
 # Etapa 2: Nginx para servir archivos estáticos
 FROM nginx:alpine
@@ -25,12 +24,11 @@ FROM nginx:alpine
 # Copia la build desde la etapa anterior
 COPY --from=build /app/dist/starwars /usr/share/nginx/html
 
-# Expone el puerto 80 (Render detecta este automáticamente)
+# Copia el archivo de configuración de Nginx (personalizado)
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Exponemos el puerto 80 (el que Render detecta automáticamente)
 EXPOSE 80
 
 # Arranca nginx
 CMD ["nginx", "-g", "daemon off;"]
-
-
-
-
