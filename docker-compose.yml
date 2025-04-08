@@ -4,11 +4,16 @@ services:
     image: mongo
     ports:
       - "27017:27017"
-  
+    volumes:
+      - mongo-data:/data/db
+
   app:
     build: .
     ports:
-      - "4200:4200"
-    volumes:
-      - .:/starwars
-    command: ng serve --host 0.0.0.0 --disable-host-check
+      - "80:80"
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:
+

@@ -1,34 +1,23 @@
-# Etapa 1: build de Angular
+# Etapa 1: Construcción de la app Angular
 FROM node:18 AS build
 
 WORKDIR /app
 
-# Copia los archivos de configuración de npm
 COPY package*.json ./
-
-# Instala Angular CLI globalmente
-RUN npm install -g @angular/cli
-
-# Instala las dependencias
 RUN npm install
-
-# Copia el resto de la aplicación
 COPY . .
 
-# Compila la app Angular en modo producción
-RUN npm run build --configuration production
+RUN npm run build -- --configuration=production
 
-# Etapa 2: Nginx para servir archivos estáticos
+# Etapa 2: Servir con Nginx
 FROM nginx:alpine
 
-# Copia la build desde la etapa anterior
-COPY --from=build /app/dist/starwars /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copia el archivo de configuración de Nginx (personalizado)
-COPY nginx.conf /etc/nginx/nginx.conf
+# Copiar archivos generados por Angular al directorio público de Nginx
+COPY --from=build /app/dist/starwars/browser /usr/share/nginx/html
 
-# Exponemos el puerto 80 (el que Render detecta automáticamente)
 EXPOSE 80
 
-# Arranca nginx
 CMD ["nginx", "-g", "daemon off;"]
+
