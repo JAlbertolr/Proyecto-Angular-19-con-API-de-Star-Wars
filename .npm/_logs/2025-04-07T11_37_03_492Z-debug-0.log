@@ -1,0 +1,23 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.8.2
+2 info using node@v18.20.8
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/mi_web/.npmrc
+5 silly config load:file:/usr/local/etc/npmrc
+6 verbose title npm start
+7 verbose argv "start"
+8 verbose logfile logs-max:10 dir:/mi_web/.npm/_logs/2025-04-07T11_37_03_492Z-
+9 verbose logfile /mi_web/.npm/_logs/2025-04-07T11_37_03_492Z-debug-0.log
+10 silly logfile done cleaning log files
+11 http fetch GET 200 https://registry.npmjs.org/npm 155ms
+12 verbose cwd /mi_web
+13 verbose os Linux 5.15.167.4-microsoft-standard-WSL2
+14 verbose node v18.20.8
+15 verbose npm  v10.8.2
+16 notice
+16 notice New major version of npm available! 10.8.2 -> 11.2.0
+16 notice Changelog: https://github.com/npm/cli/releases/tag/v11.2.0
+16 notice To update run: npm install -g npm@11.2.0
+16 notice  { force: true, [Symbol(proc-log.meta)]: true }
+17 verbose exit 1
+18 verbose code 1

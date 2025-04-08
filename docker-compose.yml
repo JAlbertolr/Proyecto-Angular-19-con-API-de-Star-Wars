@@ -1,0 +1,14 @@
+
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+  
+  app:
+    build: .
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/starwars
+    command: ng serve --host 0.0.0.0 --disable-host-check
